@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 3f;
-    public float jumpForce = 3f;
+    public float moveSpeed =7f;
+    public float jumpForce = 9f;
     public Transform groundCheck;
     public LayerMask groundLayer;
 
@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Finish"))
         {
             collision.GetComponent<LevelObject>().MoveToNextLevel();
+        }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     // Start is called before the first frame update
